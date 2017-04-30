@@ -1,6 +1,14 @@
 window.addEventListener('load', eventWindowLoaded, false);
+canvasOne.addEventListener('mouseenter',mouseOver,false);
 var videoElement;
 var videoDiv;
+var fg_src = 'http://am-team.be/images/example-pharma1/MetalChannelPharma750x500.png';
+// Magnifier visible? (on/off)
+var magnifier_radius 	 = 100;    // radius of magnifier (px)		
+var magnifier_state = 'off';  // placeholder
+
+var Magnifying_glass = {x:0,y:0,state:magnifier_state,rad:magnifier_radius};
+
 
 function eventWindowLoaded() {
     videoElement = document.createElement("video");
@@ -45,19 +53,18 @@ function supportedVideoFormat(video) {
 
 function canvasApp() {
    if (!canvasSupport()) {
-          window.alert("no canvas support");
           return;
         }
 
 function  drawScreen () {
       //Background
-      context.drawImage(videoElement,0,0);
+
+        context.drawImage(videoElement,0,0);
    }
 
    var theCanvas = document.getElementById("canvasOne");
    var context = theCanvas.getContext("2d");
    videoElement.play();
-   window.alert("playing vid");
     
    function gameLoop() {
       window.setTimeout(gameLoop, 20);
@@ -65,4 +72,8 @@ function  drawScreen () {
    }
 
    gameLoop();
+}
+
+function mouseOver () {
+    window.alert('mouseOver');
 }
