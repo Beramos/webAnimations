@@ -1,8 +1,8 @@
 var v = document.getElementById('v');
-var canvas2 = document.getElementById('c2');
-var ctx2 = canvas2.getContext('2d');
+var canvas = document.getElementById('c');
+var ctx = canvas.getContext('2d');
 var vid = document.createElement('video');
-
+vid.src = "vids/pidpaMasked.mp4"   
 //vid.autoPlay = true;
 
 $(document).ready(function(){
