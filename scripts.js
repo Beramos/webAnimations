@@ -1,42 +1,42 @@
-var v = document.getElementById('v');
-var canvas = document.getElementById('c');
-var ctx = canvas.getContext('2d');
-var vid = document.createElement('video');
-vid.src = "vids/pidpaMasked.mp4";
-vid.autoPlay = true;
+var videoElement;
+var videoDiv;
 
+function eventWindowLoaded() {
 
-function evenWindowLoaded()
-
-$(document).ready(function () {
-  // img.src = bg_src;
-  // ctx.drawImage(img, -180, 0, 856,1144); 
-      ctx.drawImage(vid,0,0,448,599); 
-   
-  // var Magnifying_glass = {x:0,y:0,state:magnifier_state,rad:magnifier_radius};
-  
-  /*$("#c").on("mousemove", function(e){
+    videoElement = document.createElement("video");
+    videoDiv = document.createElement('div');
+    document.body.appendChild(videoDiv);
+    videoDiv.appendChild(videoElement);
+    videoDiv.setAttribute("style", "display:none;");
     
-    //Get mouse position
-    Magnifying_glass.x=e.pageX;
-    Magnifying_glass.y=e.pageY;
-  
-  	img.src = bg_src; 	// Change image source to background
-    ctx.drawImage(img, 0, 0); 								 	// Draw image
-    ctx.save();																	// Save state to undo clip later
-    ctx.beginPath();														// Initiate a path
-    ctx.arc(Magnifying_glass.x, Magnifying_glass.y, Magnifying_glass.rad, 0, Math.PI * 2, false); // Draw an arc at the mouse pointer
-    ctx.clip(); 																																// Clip the arc
-    //ctx.fillRect(0, 0, 200, 158); 				// fill entire clip with black pixel (avoid fg image cominn through where fg and bg are not overlapping anymore)
-    img.src=fg_src 	// fg image source
-    ctx.drawImage(img, 0, 0,700,450,0,0,700,450); 																		// draw fg image in clipped area
-    ctx.restore();																															// restore to last save point (undo the clipping)
-    //void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
-  });
-   
-   $("#c").on("mouseleave", function(){
-   	img.src = bg_src;
-   	ctx.drawImage(img, 0, 0); 
+    var videoType = supportedVideoFormat(videoElement);
+    if (videoType == "") {
+        alert("no video support");
+        return;
+    }
     
-  }); */
-});
+    videoElement.addEventListener("canplaythrough",videoLoaded,false);
+    videoElement.setAttribute("src", "vids/animationPidpa.mp4");
+    //videoElement.setAttribute("src", "muirbeach." + videoType); if everything works responsive videos
+
+}
+
+function videoLoaded(event) {
+   canvasApp();
+}
+
+function supportedVideoFormat(video) {
+   var returnExtension = "";
+   if (video.canPlayType("video/webm") =="probably" ||
+       video.canPlayType("video/webm") == "maybe") {
+         returnExtension = "webm";
+   } else if(video.canPlayType("video/mp4") == "probably" ||
+       video.canPlayType("video/mp4") == "maybe") {
+         returnExtension = "mp4";
+   } else if(video.canPlayType("video/ogg") =="probably" ||
+       video.canPlayType("video/ogg") == "maybe") {
+         returnExtension = "ogg";
+   }
+
+   return returnExtension;
+}
