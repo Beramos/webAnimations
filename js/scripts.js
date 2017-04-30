@@ -4,10 +4,11 @@ var videoElement;
 var videoDiv;
 var imageElement;
 var bg_src = 'https://upload.wikimedia.org/wikipedia/commons/8/85/Kalmthout_Frans_Raatstraat_Watertoren.JPG';
+var bg_src_lowBright = 'figs/Kalmthout_Frans_Raatstraat_Watertoren_darker.JPG'
 // Magnifier visible? (on/off)
-var magnifier_radius 	 = 100;    // radius of magnifier (px)		
+var magnifier_radius 	 = 200;    // radius of magnifier (px)		
 var magnifier_state = 'off';  // placeholder
-var Magnifying_glass = {x:0,y:0,state:magnifier_state,rad:magnifier_radius};
+var Magnifying_glass = {x:-100,y:-100,state:magnifier_state,rad:magnifier_radius};
 
 
 function eventWindowLoaded() {
@@ -63,9 +64,9 @@ function  drawScreen () {
         context.drawImage(imageElement,190,60,1200,1013,0,0,900,760);
         context.save();
         context.beginPath();
-        context.arc(Magnifying_glass.x, Magnifying_glass.y, 74, 0, Math.PI * 2, false);
+        context.arc(Magnifying_glass.x, Magnifying_glass.y, Magnifying_glass.rad, 0, Math.PI * 2, false);
         context.clip();
-        context.drawImage(videoElement,500,200,600,400);
+        context.drawImage(videoElement,150,80,700,467);
         context.restore();
         console.log(Magnifying_glass.x);
    }
@@ -83,6 +84,7 @@ function  drawScreen () {
 }
 
 function mouseOver (e) {
+    imageElement.setAttribute("src", bg_src_lowBright);
     Magnifying_glass.x=e.pageX;
     Magnifying_glass.y=e.pageY;
 }
