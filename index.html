@@ -6,13 +6,15 @@
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style src="styles.css" style="text/css"> </style>
 </head>
 
 <body>
     <canvas id="c" width="448" height="599"></canvas>
-    <video id="v" controls loop>
-        <source src=vids/pidpaMasked.mp4 type=video/mp4>
-    </video>
-    
+    <div class="invis-video-container">
+        <video id="v" controls loop>
+            <source src=vids/pidpaMasked.mp4 type=video/mp4>
+        </video>
+    </div>
     <script src="scripts.js"></script>
 </body>

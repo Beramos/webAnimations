@@ -2,13 +2,16 @@ var v = document.getElementById('v');
 var canvas = document.getElementById('c');
 var ctx = canvas.getContext('2d');
 var vid = document.createElement('video');
-vid.src = "vids/pidpaMasked.mp4"   
-//vid.autoPlay = true;
+vid.src = "vids/pidpaMasked.mp4";
+vid.autoPlay = true;
 
-$(document).ready(function(){
+
+function evenWindowLoaded()
+
+$(document).ready(function () {
   // img.src = bg_src;
   // ctx.drawImage(img, -180, 0, 856,1144); 
-      ctx2.drawImage(vid,0,0,448,599); 
+      ctx.drawImage(vid,0,0,448,599); 
    
   // var Magnifying_glass = {x:0,y:0,state:magnifier_state,rad:magnifier_radius};
   
