@@ -60,12 +60,12 @@ function canvasApp() {
 
 function  drawScreen () {
       //Background
-        context.drawImage(imageElement,0,0);
+        context.drawImage(imageElement,190,60,1200,1013,0,0,900,760);
         context.save();
         context.beginPath();
         context.arc(Magnifying_glass.x, Magnifying_glass.y, 74, 0, Math.PI * 2, false);
         context.clip();
-        context.drawImage(videoElement,500,200);
+        context.drawImage(videoElement,500,200,600,400);
         context.restore();
         console.log(Magnifying_glass.x);
    }
