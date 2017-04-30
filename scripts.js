@@ -1,13 +1,14 @@
+var v = document.getElementById('v');
 var canvas2 = document.getElementById('c2');
 var ctx2 = canvas2.getContext('2d');
 var vid = document.createElement('video');
-vid.src = 'http://bramdejaegher.be/images/pidpaMasked.mp4';
-vid.autoPlay = true;
+
+//vid.autoPlay = true;
 
 $(document).ready(function(){
   // img.src = bg_src;
   // ctx.drawImage(img, -180, 0, 856,1144); 
-      ctx2.drawImage(vid,0,0); 
+      ctx2.drawImage(vid,0,0,448,599); 
    
   // var Magnifying_glass = {x:0,y:0,state:magnifier_state,rad:magnifier_radius};
   
