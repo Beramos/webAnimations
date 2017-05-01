@@ -3,8 +3,8 @@ canvasOne.addEventListener('mousemove',mouseOver,false);
 var videoElement;
 var videoDiv;
 var imageElement;
-var bg_src = 'https://upload.wikimedia.org/wikipedia/commons/8/85/Kalmthout_Frans_Raatstraat_Watertoren.JPG';
-var bg_src_lowBright = 'figs/Kalmthout_Frans_Raatstraat_Watertoren_darker.JPG'
+var bg_src = 'figs/Kalmthout_Frans_Raatstraat_Watertoren_rotated.JPG';
+var bg_src_lowBright = 'figs/Kalmthout_Frans_Raatstraat_Watertoren_rotated_less_Bright.JPG'
 // Magnifier visible? (on/off)
 var magnifier_radius 	 = 200;    // radius of magnifier (px)		
 var magnifier_state = 'off';  // placeholder
@@ -26,7 +26,7 @@ function eventWindowLoaded() {
     }
     
     videoElement.addEventListener("canplaythrough",videoLoaded,false);
-    videoElement.setAttribute("src", "vids/pidpaSubmergedFilling.webm");
+    videoElement.setAttribute("src", "vids/simulationOnWaterTower.webm");
     imageElement.setAttribute("src", bg_src);
     //videoElement.setAttribute("src", "muirbeach." + videoType); if everything works responsive videos
 }
@@ -61,12 +61,12 @@ function canvasApp() {
 
 function  drawScreen () {
       //Background
-        context.drawImage(imageElement,190,60,1200,1013,0,0,900,760);
+        context.drawImage(imageElement,300,60,1000,1013,0,0,800,760);
         context.save();
         context.beginPath();
         context.arc(Magnifying_glass.x, Magnifying_glass.y, Magnifying_glass.rad, 0, Math.PI * 2, false);
         context.clip();
-        context.drawImage(videoElement,150,80,700,467);
+        context.drawImage(videoElement,0,0,1000,1013,0,0,800,760);
         context.restore();
         console.log(Magnifying_glass.x);
    }
