@@ -9,6 +9,7 @@ var bg_src_lowBright = 'figs/Kalmthout_Frans_Raatstraat_Watertoren_rotated_less_
 var magnifier_radius 	 = 200;    // radius of magnifier (px)		
 var magnifier_state = 'off';  // placeholder
 var Magnifying_glass = {x:-100,y:-100,state:magnifier_state,rad:magnifier_radius};
+document.querySelector('video').playbackRate = 0.1;
 
 
 function eventWindowLoaded() {
@@ -26,7 +27,7 @@ function eventWindowLoaded() {
     }
     
     videoElement.addEventListener("canplaythrough",videoLoaded,false);
-    videoElement.setAttribute("src", "vids/simulationOnWaterTower.webm");
+    videoElement.setAttribute("src", "vids/simulationOnWaterTower_slow.webm");
     imageElement.setAttribute("src", bg_src);
     //videoElement.setAttribute("src", "muirbeach." + videoType); if everything works responsive videos
 }
