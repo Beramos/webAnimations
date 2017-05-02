@@ -8,7 +8,7 @@ var bg_src_lowBright = 'figs/Kalmthout_Frans_Raatstraat_Watertoren_rotated_less_
 // Magnifier visible? (on/off)
 var magnifier_radius 	 = 200;    // radius of magnifier (px)		
 var magnifier_state = 'off';  // placeholder
-var Magnifying_glass = {x:-100,y:-100,state:magnifier_state,rad:magnifier_radius};
+var Magnifying_glass = {x:-300,y:-300,state:magnifier_state,rad:magnifier_radius};
 document.querySelector('video').playbackRate = 0.1;
 
 
