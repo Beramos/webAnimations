@@ -1,12 +1,17 @@
+/* User changes */
+var bg_src = 'figs/KalmthoutV2_cropped.png';                // static image of watertower when mous is NOT the image            
+var bg_src_lowBright = 'figs/KalmthoutV2_cropped.png';      // static image of watertower when mouse is on the image
+var magnifier_radius 	 = 80;                                // radius of magnifier (px)
+var playBackRateVideo = 0.4;                                // Speed at which video plays in fraction of the original speed
+
+/*--------------*/
+
 window.addEventListener('load', eventWindowLoaded, false);
 canvasOne.addEventListener('mousemove',mouseOver,false);
 var videoElement;
 var videoDiv;
 var imageElement;
-var bg_src = 'figs/KalmthoutV2_cropped.png';
-var bg_src_lowBright = 'figs/KalmthoutV2_cropped.png'
-// Magnifier visible? (on/off)
-var magnifier_radius 	 = 80;    // radius of magnifier (px)		
+// Magnifier visible? (on/off)	
 var magnifier_state = 'off';  // placeholder
 var Magnifying_glass = {x:-100,y:-100,state:magnifier_state,rad:magnifier_radius};
 document.querySelector('video').playbackRate = 0.3;
@@ -75,7 +80,7 @@ function  drawScreen () {
    var theCanvas = document.getElementById("canvasOne");
    var context = theCanvas.getContext("2d");
    videoElement.play();
-    videoElement.playbackRate = 0.4;
+    videoElement.playbackRate = playBackRateVideo;
     
    function gameLoop() {
       window.setTimeout(gameLoop, 20);
