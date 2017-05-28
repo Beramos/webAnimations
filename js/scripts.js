@@ -3,13 +3,13 @@ canvasOne.addEventListener('mousemove',mouseOver,false);
 var videoElement;
 var videoDiv;
 var imageElement;
-var bg_src = 'figs/Kalmthout_Frans_Raatstraat_Watertoren_rotated.JPG';
-var bg_src_lowBright = 'figs/Kalmthout_Frans_Raatstraat_Watertoren_rotated_less_Bright.JPG'
+var bg_src = 'figs/KalmthoutV2_cropped.png';
+var bg_src_lowBright = 'figs/KalmthoutV2_cropped.png'
 // Magnifier visible? (on/off)
-var magnifier_radius 	 = 200;    // radius of magnifier (px)		
+var magnifier_radius 	 = 80;    // radius of magnifier (px)		
 var magnifier_state = 'off';  // placeholder
 var Magnifying_glass = {x:-100,y:-100,state:magnifier_state,rad:magnifier_radius};
-document.querySelector('video').playbackRate = 0.1;
+document.querySelector('video').playbackRate = 0.3;
 
 
 function eventWindowLoaded() {
@@ -27,7 +27,7 @@ function eventWindowLoaded() {
     }
     
     videoElement.addEventListener("canplaythrough",videoLoaded,false);
-    videoElement.setAttribute("src", "vids/simulationOnWaterTower_slow.webm");
+    videoElement.setAttribute("src", "vids/PIDPAV2.webm");
     imageElement.setAttribute("src", bg_src);
     //videoElement.setAttribute("src", "muirbeach." + videoType); if everything works responsive videos
 }
@@ -62,12 +62,12 @@ function canvasApp() {
 
 function  drawScreen () {
       //Background
-        context.drawImage(imageElement,300,60,1000,1013,0,0,800,760);
+        context.drawImage(imageElement,0,0);
         context.save();
         context.beginPath();
         context.arc(Magnifying_glass.x, Magnifying_glass.y, Magnifying_glass.rad, 0, Math.PI * 2, false);
         context.clip();
-        context.drawImage(videoElement,0,0,1000,1013,0,0,800,760);
+        context.drawImage(videoElement,0,0);
         context.restore();
         console.log(Magnifying_glass.x);
    }
@@ -75,6 +75,7 @@ function  drawScreen () {
    var theCanvas = document.getElementById("canvasOne");
    var context = theCanvas.getContext("2d");
    videoElement.play();
+    videoElement.playbackRate = 0.4;
     
    function gameLoop() {
       window.setTimeout(gameLoop, 20);
